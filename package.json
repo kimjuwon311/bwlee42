@@ -1,0 +1,17 @@
+{
+  "name": "blog-test9",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "@astrojs/mdx": "^4.3.0",
+    "@iconify-json/mdi": "^1.2.3",
+    "astro": "^5.10.0",
+    "astro-icon": "^1.1.5"
+  }
+}

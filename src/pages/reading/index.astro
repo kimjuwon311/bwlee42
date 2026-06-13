@@ -1,0 +1,12 @@
+---
+import { getCollection } from 'astro:content';
+import SectionLayout from '../../layouts/SectionLayout.astro';
+import ArticleList from '../../components/ArticleList.astro';
+
+const posts = (await getCollection('reading', (entry) => !entry.data.draft))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+---
+
+<SectionLayout title="Reading" description="어떤 책이나 글을 읽고 든 생각들">
+  <ArticleList posts={posts} basePath="/reading" />
+</SectionLayout>

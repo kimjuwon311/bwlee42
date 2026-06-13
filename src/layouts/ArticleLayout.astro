@@ -1,0 +1,89 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import Toc from '../components/Toc.astro';
+
+const { frontmatter, headings } = Astro.props;
+
+function formatDate(date) {
+  return new Intl.DateTimeFormat('ko-KR', {
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+  }).format(new Date(date));
+}
+---
+
+<BaseLayout title={`${frontmatter.title} | Bwlee42`}>
+  <div class="content-grid article-grid">
+    <article class="prose">
+      <header class="article-header">
+        <h1>{frontmatter.title}</h1>
+        <div class="meta">
+          {formatDate(frontmatter.date)}
+          {frontmatter.updated && <> · 수정 {formatDate(frontmatter.updated)}</>}
+        </div>
+        {frontmatter.tags?.length > 0 && (
+          <div class="tags">
+            {frontmatter.tags.map((tag) => <span class="tag">{tag}</span>)}
+          </div>
+        )}
+      </header>
+      <slot />
+    </article>
+    <Toc headings={headings} />
+  </div>
+
+  <script>
+    const headings = Array.from(document.querySelectorAll('.prose h2[id], .prose h3[id]'));
+    const tocLinks = Array.from(document.querySelectorAll('.toc a'));
+
+    function activateToc(id) {
+      tocLinks.forEach((link) => {
+        const isActive = link.getAttribute('href') === `#${id}`;
+        link.classList.toggle('active', isActive);
+      });
+    }
+
+    function setActiveToc() {
+      if (headings.length === 0) return;
+
+      const scrollBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 8;
+      if (scrollBottom) {
+        activateToc(headings[headings.length - 1].id);
+        return;
+      }
+
+      let current = headings[0].id;
+
+      for (const heading of headings) {
+        const rect = heading.getBoundingClientRect();
+        if (rect.top <= 150) {
+          current = heading.id;
+        }
+      }
+
+      activateToc(current);
+    }
+
+    tocLinks.forEach((link) => {
+      link.addEventListener('click', (event) => {
+        const href = link.getAttribute('href');
+        if (!href || !href.startsWith('#')) return;
+
+        const target = document.querySelector(href);
+        if (!target) return;
+
+        event.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        history.pushState(null, '', href);
+        activateToc(target.id);
+      });
+    });
+
+    if (headings.length > 0) {
+      setActiveToc();
+      window.addEventListener('scroll', setActiveToc, { passive: true });
+      window.addEventListener('resize', setActiveToc);
+    }
+  </script>
+</BaseLayout>

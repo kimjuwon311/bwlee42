@@ -1,0 +1,29 @@
+---
+const { posts, basePath } = Astro.props;
+
+function formatDate(date) {
+  return new Intl.DateTimeFormat('ko-KR', {
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+  }).format(new Date(date));
+}
+---
+
+<div class="article-list">
+  {posts.map((post) => (
+    <article class="article-item">
+      <div class="meta">
+        {formatDate(post.data.date)}
+        {post.data.updated && <> · 수정 {formatDate(post.data.updated)}</>}
+      </div>
+      <h2><a href={`${basePath}/${post.slug}`}>{post.data.title}</a></h2>
+      {post.data.description && <p>{post.data.description}</p>}
+      {post.data.tags?.length > 0 && (
+        <div class="tags">
+          {post.data.tags.map((tag) => <span class="tag">{tag}</span>)}
+        </div>
+      )}
+    </article>
+  ))}
+</div>
