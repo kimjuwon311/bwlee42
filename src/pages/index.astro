@@ -5,6 +5,106 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 <BaseLayout title="Bwlee42">
   <section class="home">
     <h1>Bwlee42's Archive</h1>
-    <p>물리와 공학에 관심이 많은 학생이 생각들을 기록해두는 서재입니다. 자유롭게 살펴보세요.</p>
+
+    <p>
+      물리와 공학에 관심이 많은 학생이 생각들을 기록해두는 서재입니다.
+      자유롭게 살펴보세요.
+    </p>
+
+    <div class="home-sketch" aria-hidden="true">
+      <svg viewBox="0 0 260 90">
+        <path d="M24 45 C70 14, 112 14, 156 45" />
+        <path d="M24 45 C70 76, 112 76, 156 45" />
+        <path d="M156 45 L232 45" />
+        <path d="M196 45 C202 36, 210 36, 216 45 C210 54, 202 54, 196 45" />
+      </svg>
+    </div>
+
+    <nav class="home-links" aria-label="Main links">
+      <a href="/essays">Essays 보러가기</a>
+      <a href="/projects">Projects 살펴보기</a>
+      <a href="/about">About 읽기</a>
+    </nav>
   </section>
 </BaseLayout>
+
+<style>
+  .home {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 18vh 1.5rem 0;
+  }
+
+  .home h1 {
+    font-size: clamp(3rem, 7vw, 5rem);
+    line-height: 1.05;
+    margin: 0 0 1.5rem;
+    letter-spacing: -0.04em;
+  }
+
+  .home p {
+    max-width: 580px;
+    font-size: 1.08rem;
+    line-height: 1.8;
+    color: #666;
+    margin: 0;
+  }
+
+  .home-sketch {
+    width: 180px;
+    margin: 2.4rem 0 1.8rem;
+    opacity: 0.42;
+  }
+
+  .home-sketch svg {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .home-sketch path {
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .home-links {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    padding-top: 1.75rem;
+    border-top: 1px solid #e8e2d8;
+  }
+
+  .home-links a {
+    color: #555;
+    text-decoration: none;
+    font-size: 0.95rem;
+    padding: 0.65rem 0.9rem;
+    border: 1px solid #e3ddd2;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.35);
+    transition:
+      color 0.2s ease,
+      border-color 0.2s ease,
+      transform 0.2s ease;
+  }
+
+  .home-links a:hover {
+    color: #222;
+    border-color: #cfc5b7;
+    transform: translateY(-1px);
+  }
+
+  @media (max-width: 640px) {
+    .home {
+      padding-top: 14vh;
+    }
+
+    .home-sketch {
+      width: 150px;
+    }
+  }
+</style>
