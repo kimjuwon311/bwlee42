@@ -11,17 +11,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       자유롭게 살펴보세요.
     </p>
 
-    <div class="home-sketch" aria-hidden="true">
-      <svg viewBox="0 0 260 90">
-        <line x1="20" y1="45" x2="95" y2="45" />
-        <path d="M95 45 Q130 10 165 45" />
-        <path d="M95 45 Q130 80 165 45" />
-        <line x1="165" y1="45" x2="240" y2="45" />
-        <circle cx="95" cy="45" r="3" />
-        <circle cx="165" cy="45" r="3" />
-      </svg>
-    </div>
-
     <nav class="home-links" aria-label="Main links">
       <a href="/essays">Essays 보러가기</a>
       <a href="/projects">Projects 살펴보기</a>
@@ -38,52 +27,30 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   }
 
   .home h1 {
-    font-size: clamp(3.2rem, 7vw, 5.2rem);
+    font-size: clamp(2.8rem, 6vw, 4.5rem);
     line-height: 1.05;
-    margin: 0 0 1.4rem;
     letter-spacing: -0.04em;
+    margin: 0 0 1.25rem;
   }
 
   .home p {
     font-size: 1.08rem;
     line-height: 1.8;
     color: #666;
-    margin: 0;
-    white-space: nowrap;
-  }
-
-  .home-sketch {
-    width: 170px;
-    margin: 2.2rem 0 2rem;
-    color: #999;
-  }
-
-  .home-sketch svg {
-    display: block;
-    width: 100%;
-    height: auto;
-  }
-
-  .home-sketch line,
-  .home-sketch path,
-  .home-sketch circle {
-    fill: none;
-    stroke: currentColor;
-    stroke-width: 2;
-    stroke-linecap: round;
-    stroke-linejoin: round;
+    margin: 0 0 2.5rem;
   }
 
   .home-links {
     display: flex;
-    gap: 1.3rem;
+    gap: 2rem;
     flex-wrap: wrap;
   }
 
   .home-links a {
-    color: #555;
+    color: #666;
     text-decoration: none;
     font-size: 1rem;
+    transition: color 0.2s ease;
   }
 
   .home-links a::before {
@@ -95,13 +62,18 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     color: #222;
   }
 
-  @media (max-width: 760px) {
+  @media (max-width: 768px) {
     .home {
       padding-top: 12vh;
     }
 
-    .home p {
-      white-space: normal;
+    .home h1 {
+      font-size: clamp(2.4rem, 9vw, 3.5rem);
+    }
+
+    .home-links {
+      flex-direction: column;
+      gap: 0.75rem;
     }
   }
 </style>
