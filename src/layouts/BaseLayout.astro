@@ -8,13 +8,28 @@ const { title = "Bwlee42" } = Astro.props;
 
 <!doctype html>
 <html lang="ko">
-  <head>
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta charset="UTF-8" />
-    <meta name="description" content="아무거나 적는 공간" />
-    <meta name="viewport" content="width=device-width" />
-    <title>{title}</title>
-  </head>
+<head>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+  <meta charset="UTF-8" />
+  <meta name="description" content="Essays, projects, reading notes, and intellectual archive." />
+  <meta name="viewport" content="width=device-width" />
+
+  <title>{title}</title>
+
+  <!-- Open Graph -->
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content="Essays, projects, reading notes, and intellectual archive." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://kimjuwon.me" />
+  <meta property="og:image" content="https://kimjuwon.me/og-image.png" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content="Essays, projects, reading notes, and intellectual archive." />
+  <meta name="twitter:image" content="https://kimjuwon.me/og-image.png" />
+</head>
   <body>
     <Header />
     <main class="page">
