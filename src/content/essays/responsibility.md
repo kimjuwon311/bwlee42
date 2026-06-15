@@ -1,8 +1,8 @@
 ---
 title: "첫 글_Essays"
 description: "어떤 것들을 어떻게 기록하는 곳일까요"
-date: 2026-06-13
-updated: 2026-06-13
+date: 2026-06-15
+updated: 2026-06-15
 tags: ["첫 글", "Essays"]
 draft: false
 ---
