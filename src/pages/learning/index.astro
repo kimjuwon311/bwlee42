@@ -1,0 +1,36 @@
+
+---
+import { getCollection } from 'astro:content';
+import SectionLayout from '../../layouts/SectionLayout.astro';
+
+const posts = await getCollection('learning', entry => !entry.data.draft);
+
+const names = [...new Set(
+  posts.map(post => post.slug.split('/')[1])
+    .filter(Boolean)
+)].sort();
+---
+
+<SectionLayout title="Learning" description="임의의 값">
+  <div class="categories">
+    {names.map(name => (
+      <a href={`/learning/subjects/${name}`}>
+        {name.replace(/-/g, ' ')} →
+      </a>
+    ))}
+  </div>
+</SectionLayout>
+
+<style>
+  .categories {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  .categories a {
+    color: inherit;
+    text-decoration: none;
+    font-size: 1.2rem;
+    text-transform: capitalize;
+  }
+</style>
