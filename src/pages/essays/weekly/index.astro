@@ -4,13 +4,13 @@ import { getCollection } from 'astro:content';
 import SectionLayout from '../../../layouts/SectionLayout.astro';
 import ArticleList from '../../../components/ArticleList.astro';
 
-const category = 'daily';
+const category = 'weekly';
 
 const posts = (await getCollection('essays', entry =>
   !entry.data.draft && entry.slug.startsWith(category + '/')
 )).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 ---
 
-<SectionLayout title="Daily">
+<SectionLayout title="Weekly">
   <ArticleList posts={posts} basePath="/essays" />
 </SectionLayout>
