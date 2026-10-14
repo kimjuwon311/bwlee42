@@ -1,0 +1,52 @@
+
+[
+  {
+    "category": "Lectures",
+    "items": [
+      {
+        "type": "link",
+        "title": "Neural Networks: Zero to Hero",
+        "url": "https://karpathy.ai/zero-to-hero.html",
+        "comment": "Andrej Karpathy. Neural networks from scratch."
+      },
+      {
+        "type": "link",
+        "title": "MIT OpenCourseWare 8.01",
+        "url": "https://ocw.mit.edu/courses/8-01sc-classical-mechanics-fall-2016/",
+        "comment": "Classical mechanics."
+      }
+    ]
+  },
+  {
+    "category": "Essays",
+    "items": [
+      {
+        "type": "link",
+        "title": "How to Do Great Work",
+        "url": "https://paulgraham.com/greatwork.html",
+        "comment": "Paul Graham. Curiosity and independent thinking."
+      }
+    ]
+  },
+  {
+    "category": "Words",
+    "items": [
+      {
+        "type": "quote",
+        "text": "여기에 기억하고 싶은 문장을 적는다.",
+        "source": "출처",
+        "comment": "짧은 생각을 덧붙여도 좋고."
+      }
+    ]
+  },
+  {
+    "category": "Notes",
+    "items": [
+      {
+        "type": "note",
+        "text": "문득 생각난 아이디어나 질문.",
+        "comment": ""
+      }
+    ]
+  }
+]
