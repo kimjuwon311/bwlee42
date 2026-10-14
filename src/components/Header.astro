@@ -1,13 +1,14 @@
 ---
 const currentPath = Astro.url.pathname;
 
+
 const nav = [
   { href: '/about', label: 'About' },
   { href: '/essays', label: 'Essays' },
   { href: '/projects', label: 'Projects' },
-  { href: '/reading', label: 'Reading' },
-  { href: '/archive', label: 'Archive' },
+  { href: '/learning', label: 'Learning' },
 ];
+
 
 function isActive(href) {
   if (href === '/') return currentPath === '/';
