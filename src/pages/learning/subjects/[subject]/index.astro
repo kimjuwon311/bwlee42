@@ -6,8 +6,12 @@ import ArticleList from '../../../../components/ArticleList.astro';
 
 export async function getStaticPaths() {
   const posts = await getCollection('learning', entry => !entry.data.draft);
+
   const names = [...new Set(
-    posts.map(post => post.slug.split('/')[1]).filter(Boolean)
+    posts
+      .filter(post => post.slug.startsWith('subjects/'))
+      .map(post => post.slug.split('/')[1])
+      .filter(Boolean)
   )];
 
   return names.map(subject => ({
@@ -17,12 +21,13 @@ export async function getStaticPaths() {
 
 const { subject } = Astro.params;
 
-const posts = (await getCollection('subjects', entry =>
+const posts = (await getCollection('learning', entry =>
   !entry.data.draft &&
-  entry.slug.startsWith(`list/${subject}/`)
+  entry.slug.startsWith(`subjects/${subject}/`)
 )).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 ---
 
 <SectionLayout title={subject.replace(/-/g, ' ')}>
-  <ArticleList posts={posts} basePath="/subjects" />
+  <ArticleList posts={posts} basePath="/learning" />
 </SectionLayout>
+
