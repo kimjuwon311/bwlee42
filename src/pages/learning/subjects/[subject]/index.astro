@@ -1,0 +1,28 @@
+
+---
+import { getCollection } from 'astro:content';
+import SectionLayout from '../../../../layouts/SectionLayout.astro';
+import ArticleList from '../../../../components/ArticleList.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('learning', entry => !entry.data.draft);
+  const names = [...new Set(
+    posts.map(post => post.slug.split('/')[1]).filter(Boolean)
+  )];
+
+  return names.map(subject => ({
+    params: { subject },
+  }));
+}
+
+const { subject } = Astro.params;
+
+const posts = (await getCollection('subjects', entry =>
+  !entry.data.draft &&
+  entry.slug.startsWith(`list/${subject}/`)
+)).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+---
+
+<SectionLayout title={subject.replace(/-/g, ' ')}>
+  <ArticleList posts={posts} basePath="/subjects" />
+</SectionLayout>
