@@ -1,12 +1,36 @@
+
 ---
 import { getCollection } from 'astro:content';
 import SectionLayout from '../../layouts/SectionLayout.astro';
-import ArticleList from '../../components/ArticleList.astro';
 
-const posts = (await getCollection('projects', (entry) => !entry.data.draft))
-  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+const posts = await getCollection('projects', entry => !entry.data.draft);
+
+const names = [...new Set(
+  posts.map(post => post.slug.split('/')[1])
+    .filter(Boolean)
+)].sort();
 ---
 
-<SectionLayout title="Projects" description="부수고 만들고 탐구하고 실험한 것들의 기록">
-  <ArticleList posts={posts} basePath="/projects" />
+<SectionLayout title="Projects" description="Building, experimenting, and exploring.">
+  <div class="categories">
+    {names.map(name => (
+      <a href={`/projects/list/${name}`}>
+        {name.replace(/-/g, ' ')} →
+      </a>
+    ))}
+  </div>
 </SectionLayout>
+
+<style>
+  .categories {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  .categories a {
+    color: inherit;
+    text-decoration: none;
+    font-size: 1.2rem;
+    text-transform: capitalize;
+  }
+</style>
