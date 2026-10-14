@@ -1,0 +1,135 @@
+
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import library from '../data/library.json';
+---
+
+<BaseLayout title="Library | Bwlee42">
+  <div class="library">
+    <header>
+      <h1>Library</h1>
+      <p>Things worth keeping close.</p>
+    </header>
+
+    {library.map((section) => (
+      <section class="library-section">
+        <h2>{section.category}</h2>
+
+        <div class="library-items">
+          {section.items.map((item) => (
+            <div class="library-item">
+              {item.type === 'link' && (
+                <a href={item.url}
+                   target="_blank"
+                   rel="noopener noreferrer">
+                  {item.title} ↗
+                </a>
+              )}
+
+              {item.type === 'quote' && (
+                <blockquote>
+                  {item.text}
+                </blockquote>
+              )}
+
+              {item.type === 'note' && (
+                <div class="note">{item.text}</div>
+              )}
+
+              {item.source && (
+                <p class="source">— {item.source}</p>
+              )}
+
+              {item.comment && (
+                <p class="comment">{item.comment}</p>
+              )}
+            </div>
+          ))}
+        </div>
+      </section>
+    ))}
+  </div>
+</BaseLayout>
+
+<style>
+  .library {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+
+  .library header {
+    margin-bottom: 54px;
+  }
+
+  .library h1 {
+    font-size: 2.2rem;
+    letter-spacing: -0.035em;
+    margin: 0 0 8px;
+  }
+
+  .library header p {
+    color: var(--muted);
+    margin: 0;
+  }
+
+  .library-section {
+    margin-bottom: 48px;
+  }
+
+  .library h2 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin: 0 0 20px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .library-items {
+    display: grid;
+    gap: 22px;
+  }
+
+  .library-item a {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .library-item blockquote {
+    margin: 0;
+    padding: 0;
+    font-style: italic;
+    white-space: pre-line;
+  }
+
+  .library-item .note {
+    white-space: pre-line;
+  }
+
+  .library-item p {
+    font-size: 0.9rem;
+    margin: 3px 0 0;
+  }
+
+  .library-item .comment {
+    color: var(--muted);
+  }
+
+  .library-item .source {
+    color: var(--faint);
+    font-size: 0.84rem;
+  }
+
+  @media (max-width: 720px) {
+    .library header {
+      margin-bottom: 36px;
+    }
+
+    .library h1 {
+      font-size: 1.9rem;
+    }
+
+    .library-section {
+      margin-bottom: 36px;
+    }
+  }
+</style>
