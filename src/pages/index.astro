@@ -1,3 +1,4 @@
+
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
@@ -7,15 +8,17 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     <h1>Bwlee42's Archive</h1>
 
     <p>
-      물리와 공학에 관심이 많은 학생이<br> 생각들을 기록하는 서재입니다.<br>
-      자유롭게 살펴보세요.
+      A little corner of the internet
+      for things I find interesting.
     </p>
 
-    <nav class="home-links" aria-label="Main links">
-      <a href="/essays">Essays</a>
-      <a href="/projects">Projects</a>
-      <a href="/learning">Learning</a>
-    </nav>
+    <figure>
+      <img
+        src="/home.jpg"
+        alt="A moment worth keeping"
+        loading="eager"
+      />
+    </figure>
   </section>
 </BaseLayout>
 
@@ -23,57 +26,37 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   .home {
     max-width: 820px;
     margin: 0 auto;
-    padding: 13vh 1.5rem 0;
+    padding: 9vh 0 0;
   }
 
   .home h1 {
-    font-size: clamp(2.5rem, 5.5vw, 4.2rem);
-    line-height: 1.05;
+    font-size: clamp(2.4rem, 5.5vw, 4.2rem);
+    line-height: 1.1;
     letter-spacing: -0.04em;
     margin: 0 0 1.25rem;
   }
 
   .home p {
-    font-size: 1.08rem;
+    font-size: 1.05rem;
     line-height: 1.8;
-    color: #666;
+    color: var(--muted);
     margin: 0 0 2.5rem;
   }
 
-  .home-links {
-    display: flex;
-    gap: 2rem;
-    flex-wrap: wrap;
+  .home figure {
+    margin: 0;
   }
 
-  .home-links a {
-    color: #666;
-    text-decoration: none;
-    font-size: 1rem;
-    transition: color 0.2s ease;
+  .home img {
+    display: block;
+    width: 100%;
+    height: auto;
   }
 
-  .home-links a::before {
-    content: "→ ";
-    color: #999;
-  }
-
-  .home-links a:hover {
-    color: #222;
-  }
-
-  @media (max-width: 768px) {
+  @media (max-width: 720px) {
     .home {
-      padding-top: 8vh;
-    }
-
-    .home h1 {
-      font-size: clamp(2.4rem, 9vw, 3.5rem);
-    }
-
-    .home-links {
-      flex-direction: column;
-      gap: 0.5rem;
+      padding-top: 5vh;
     }
   }
 </style>
+
