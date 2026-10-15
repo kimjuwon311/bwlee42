@@ -28,14 +28,31 @@
       }
     ]
   },
+    {
+    "category": "Useful Sites",
+    "items": [
+      {
+        "type": "link",
+        "title": "고등과학원 HORIZON",
+        "url": "https://horizon.kias.re.kr/",
+        "comment": "Imagine the impossible."
+      },
+       {
+        "type": "link",
+        "title": "The Feynman Lectures on Physics Vol 1",
+        "url": "https://www.feynmanlectures.caltech.edu/I_toc.html",
+        "comment": "G.O.A.T."
+      }
+    ]
+  },
   {
     "category": "Words",
     "items": [
       {
         "type": "quote",
-        "text": "여기에 기억하고 싶은 문장을 적는다.",
-        "source": "출처",
-        "comment": "짧은 생각을 덧붙여도 좋고."
+        "text": "42",
+        "source": "The Hitchhiker's Guide to Galaxy",
+        "comment": "Answer to life the universe and everything"
       }
     ]
   },
