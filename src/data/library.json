@@ -15,6 +15,12 @@
         "url": "https://ocw.mit.edu/courses/8-01sc-classical-mechanics-fall-2016/",
         "comment": "Classical mechanics."
       }
+      {
+        "type": "link",
+        "title": "MIT OpenCourseWare 18-06sc",
+        "url": "https://ocw.mit.edu/courses/18-06sc-linear-algebra-fall-2011/",
+        "comment": "Linear Algebra"
+      }
     ]
   },
   {
