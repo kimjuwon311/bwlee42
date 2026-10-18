@@ -60,6 +60,12 @@
         "source": "The Hitchhiker's Guide to Galaxy",
         "comment": "Answer to life the universe and everything"
       }
+      {
+        "type": "quote",
+        "text": "The three most powerful motives are curiosity, delight, and the desire to do something impressive.",
+        "source": "How To Do Great Work_Paul",
+        "comment": "호기심, 기쁨, 욕망"
+      }
     ]
   },
   {
