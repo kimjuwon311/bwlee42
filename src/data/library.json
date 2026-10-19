@@ -19,7 +19,7 @@
         "type": "link",
         "title": "MIT OpenCourseWare 18-06sc",
         "url": "https://ocw.mit.edu/courses/18-06sc-linear-algebra-fall-2011/",
-        "comment": "Linear Algebra"
+        "comment": "Linear Algebra."
       }
     ]
   },
@@ -65,6 +65,12 @@
         "text": "The three most powerful motives are curiosity, delight, and the desire to do something impressive.",
         "source": "How To Do Great Work_Paul",
         "comment": "호기심, 기쁨, 욕망"
+      },
+      {
+        "type": "quote",
+        "text": "A poor life this if, full of care, We have no time to stand and stare.",
+        "source": "Leisure_W. H. Davies",
+        "comment": "자연 속에서"
       }
     ]
   },
