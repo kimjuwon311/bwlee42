@@ -1,7 +1,7 @@
 
 [
   {
-    "category": "Lectures",
+    "category": "Lectures & Textbooks",
     "items": [
       {
         "type": "link",
@@ -20,6 +20,12 @@
         "title": "MIT OpenCourseWare 18-06sc",
         "url": "https://ocw.mit.edu/courses/18-06sc-linear-algebra-fall-2011/",
         "comment": "Linear Algebra."
+      },
+      {
+        "type": "link",
+        "title": "Number Theory in Context and Interactive",
+        "url": "https://math-cs.gordon.edu/ntic/nticoneside.pdf",
+        "comment": "Gordon 대학교 Crisman 교수의 정수론 교재. 정수론 문제 풀고 참고하기"
       }
     ]
   },
@@ -60,6 +66,17 @@
         "title": "mathematics stack exchange",
         "url": "https://math.stackexchange.com/",
         "comment": "mathoverflow 확장"
+      }
+    ]
+  },
+  {
+    "category": "Problems Archive",
+    "items": [
+      {
+        "type": "link",
+        "title": "정수론 문제 모음",
+        "url": "https://artofproblemsolving.com/wiki/index.php?title=Category:Intermediate_Number_Theory_Problems",
+        "comment": "IMO 등 기출"
       }
     ]
   },
