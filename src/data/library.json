@@ -48,6 +48,18 @@
         "title": "The Feynman Lectures on Physics Vol 1",
         "url": "https://www.feynmanlectures.caltech.edu/I_toc.html",
         "comment": "G.O.A.T."
+       },
+      {
+        "type": "link",
+        "title": "mathoverflow",
+        "url": "https://mathoverflow.net/",
+        "comment": "수학 연구자들의 질문이 오가는 곳. 그런데 사전 지식이 좀 많이 필요함."
+      },
+      {
+        "type": "link",
+        "title": "mathematics stack exchange",
+        "url": "https://math.stackexchange.com/",
+        "comment": "mathoverflow 확장"
       }
     ]
   },
